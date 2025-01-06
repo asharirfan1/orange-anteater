@@ -1,0 +1,88 @@
+.Button
+    background-color: #dc4545 
+    border-radius: 0
+    padding: 10px
+    //border-bottom: 5px solid darken(#dc4545, 30%)
+    height: 46px
+    color: white
+    margin-top: 20px
+    box-shadow: 0 1px 1px 0px #212121
+    font-size: 16px
+
+    @media screen and (max-width: 480px)
+        width: 100% !important
+        margin: 5px 0 !important
+        
+        &__group--positioned
+            width: 100%
+
+    &__group--positioned
+        position: absolute
+        right: 20px
+        bottom: 20px
+        width: 100%
+        text-align: right
+
+        @media screen and (max-width: 1200px)
+            position: static
+            float: right
+
+    &__more
+        float: right
+
+    &__more--positioned
+        position: absolute
+        right: 20px
+        bottom: 20px
+
+        @media screen and (max-width: 992px)
+            position: static
+            float: right
+
+    &:hover,
+    &:active,
+    &:focus
+        background-color: darken(#dc4545, 15%)
+        color: white
+
+    &--orange
+        background-color: #ff782a
+
+        &:hover,
+        &:active,
+        &:focus
+            background-color: darken(#ff782a, 15%)
+            color: white
+
+    &--green
+        background-color: #30bd26
+
+        &:hover,
+        &:active,
+        &:focus
+            background-color: darken(#30bd26, 15%)
+            color: white
+
+    &__add-resource
+        margin: 30px auto !important
+    
+    &__add-resource:parent
+        padding: 0 !important
+
+    &--blue
+        background-color: #446fce
+
+        &:hover,
+        &:active,
+        &:focus
+            background-color: darken(#446fce, 15%)
+            color: white
+
+    &--orange
+        background-color: #ff9142
+
+        &:hover,
+        &:active,
+        &:focus
+            background-color: darken(#ff9142, 15%)
+            color: white

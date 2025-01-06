@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+/public/storage
+/bower_components
+Homestead.yaml
+Homestead.json
+.env
+teplokvartal_env.txt

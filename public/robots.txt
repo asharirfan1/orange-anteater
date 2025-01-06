@@ -1,0 +1,3 @@
+Sitemap: https://orange-anteater-676276.hostingersite.com/sitemap.xml
+User-agent: *
+Disallow:
