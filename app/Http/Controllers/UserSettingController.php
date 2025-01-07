@@ -38,7 +38,6 @@ class UserSettingController extends AppBaseController
     {
         $sectionName = $request->get('section') !== null;
         $setting = UserSetting::where('user_id', getLogInUserId())->pluck('value', 'key')->toArray();
-
         return view('user-settings.credentials', compact('setting', 'sectionName'));
     }
 

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Plan;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePaymentRequest extends FormRequest
+class   UpdatePaymentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,6 +22,7 @@ class UpdatePaymentRequest extends FormRequest
      */
     public function rules(): array
     {
+
         $rules = [];
         $paymentGateways = request()->payment_gateway;
 
@@ -40,6 +41,10 @@ class UpdatePaymentRequest extends FormRequest
         if (isset($paymentGateways[Plan::PAYSTACK])) {
             $rules['paystack_key'] = 'required';
             $rules['paystack_secret'] = 'required';
+        }
+
+        if (isset($paymentGateways[Plan::MYFATOORAH])) {
+            $rules['fatoorah_api_key'] = 'required';
         }
 
         return $rules;

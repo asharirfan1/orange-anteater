@@ -35,7 +35,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  *
  * @mixin Eloquent
  */
-class UserSetting extends Model
+class   UserSetting extends Model
 {
     use InteractsWithMedia,HasFactory;
 

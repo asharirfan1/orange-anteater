@@ -82,6 +82,8 @@ return [
     'stripe_secret' => 'Stripe secret field is required.',
     'paystack_key' => 'Paystack key',
     'paystack_secret' => 'Paystack Secret',
+    'fatoorah_api_key' => 'MyFatoorah API key',
+    'fatoorah_secret' => 'MyFatoorah Secret',
     'paypal_secret' => 'Paypal secret field is required.',
     'paypal_mode' => 'Paypal mode field is required.',
     'term_condition' => 'Terms & Conditions',

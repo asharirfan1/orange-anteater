@@ -114,6 +114,7 @@ class Plan extends Model
     const MANUALLY = 4;
 
     const PAYSTACK = 5;
+    const MYFATOORAH = 6;
 
     const PAYMENT_METHOD = [
         self::STRIPE => 'Stripe',
@@ -121,6 +122,7 @@ class Plan extends Model
         self::RAZORPAY => 'Razorpay',
         self::MANUALLY => 'Manually',
         self::PAYSTACK => 'Paystack',
+        self::MYFATOORAH => 'MyFatoorah',
     ];
 
     const PAYPAL_MODE = [

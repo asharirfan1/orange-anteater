@@ -13,7 +13,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class DashboardController extends AppBaseController
+class
+DashboardController extends AppBaseController
 {
     /* @var DashboardRepository */
     private DashboardRepository $dashboardRepository;
