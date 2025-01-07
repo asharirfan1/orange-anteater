@@ -73,12 +73,14 @@ class Transaction extends Model
     const STRIPE = 1;
 
     const PAYPAL = 2;
-    
+
     const PAYSTACK = 3;
+    const FATOORAH = 4;
 
     const TYPE = [
         self::STRIPE => 'Stripe',
         self::PAYPAL => 'paypal',
         self::PAYSTACK => 'Paystack',
+        self::FATOORAH => 'fatoorah',
     ];
 }

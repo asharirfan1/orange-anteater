@@ -268,6 +268,14 @@ function getPayPalSupportedCurrencies()
     ];
 }
 
+function getMyFatoorahSupportedCurrencies()
+{
+    return [
+        'KWT', 'SAU', 'ARE', 'QAT', 'BHR', 'OMN', 'JOD', 'EGY', 'KWD'
+    ];
+}
+
+
 function getPayStackSupportedCurrencies()
 {
     return ['NGN', 'USD' , 'GHS', 'ZAR', 'KES'];

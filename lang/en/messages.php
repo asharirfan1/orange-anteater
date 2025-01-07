@@ -981,6 +981,7 @@ return [
         'embedtag_updated' => 'Embed-Tag updated successfully.',
         'payment_done' => 'Payment successfully done.',
         'this_currency_is_not_supported' => 'This currency is not supported by PayPal for making payments.',
+        'this_currency_is_not_supported_fatoorah' => 'This currency is not supported by MyFatoorah for making payments.',
         'this_currency_is_not_supported_paystack' => 'This currency is not supported by Paystack for making payments.',
         'cannot_switch_to_zero' => 'Cannot switch to zero plan if trial is available / having a paid plan which is currently active',
         'withdrawal_request_send' => 'Withdrawal request Approved successfully.',

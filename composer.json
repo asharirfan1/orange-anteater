@@ -26,6 +26,7 @@
         "livewire/livewire": "^2.11",
         "mariuzzo/laravel-js-localization": "^1.10",
         "mews/purifier": "^3.4",
+        "myfatoorah/library": "^2.2",
         "opcodesio/log-viewer": "^2.1",
         "paypal/paypal-payouts-sdk": "^1.0",
         "rap2hpoutre/laravel-log-viewer": "^2.3",

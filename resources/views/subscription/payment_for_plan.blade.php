@@ -227,6 +227,14 @@
 				                            data-plan-price="{{ $subscriptionsPricingPlan->price }}">
 					                    {{ __('messages.subscription.pay_or_switch_plan') }}</button>
 			                    </div>
+
+                                <div class="mt-5 myFatoorahPayment proceed-to-payment d-none">
+				                    <button type="button"
+				                            class="btn btn-primary rounded-pill mx-auto d-block paymentByMyFatoorah"
+				                            data-id="{{ $subscriptionsPricingPlan->id }}"
+				                            data-plan-price="{{ $subscriptionsPricingPlan->price }}">
+					                    {{ __('messages.subscription.pay_or_switch_plan') }}</button>
+			                    </div>
 		                    </div>
 	                    </div>
 	                    <div class="row justify-content-center align-items-center">

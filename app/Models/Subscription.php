@@ -76,6 +76,7 @@ class Subscription extends Model implements HasMedia
     const TYPE_PAYPAL = 2;
 
     const TYPE_RAZORPAY = 3;
+    const TYPE_MY_FATOORAH = 4;
 
     const STRIPE = 1;
 
@@ -86,6 +87,7 @@ class Subscription extends Model implements HasMedia
     const MANUALLY = 4;
 
     const PAYSTACK = 5;
+    const My_FATOORAH = 6;
 
     const PAYMENT_GATEWAY = [
         self::STRIPE => 'Stripe',
@@ -93,6 +95,7 @@ class Subscription extends Model implements HasMedia
         self::RAZORPAY => 'Razorpay',
         self::MANUALLY => 'Manually',
         self::PAYSTACK => 'Paystack',
+        self::My_FATOORAH => 'MyFatoorah',
     ];
 
     const PAYMENT_TYPES = [
@@ -100,12 +103,14 @@ class Subscription extends Model implements HasMedia
         self::TYPE_STRIPE => 'Stripe',
         self::TYPE_PAYPAL => 'PayPal',
         self::TYPE_RAZORPAY => 'RazorPay',
+        self::TYPE_MY_FATOORAH => 'MyFatoorah',
     ];
 
     const TYPE = [
         'stripe' => 'Stripe',
         'paypal' => 'PayPal',
         'razorpay' => 'RazorPay',
+        'myFatoorah' => 'MyFatoorah',
         'manually' => 'Manually',
     ];
 
