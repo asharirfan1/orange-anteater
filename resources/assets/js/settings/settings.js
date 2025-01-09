@@ -124,6 +124,9 @@ listenChange("#mobileValidation", function (e) {
 listen("click", ".stripe-enable", function () {
     $(".stripe-div").toggleClass("d-none");
 });
+listen("click", ".fatoorahEnable", function () {
+    $(".fatoorah-div").toggleClass("d-none");
+});
 
 listen('click', '.paystack-enable', function () {
     $('.paystack-div').toggleClass('d-none')
@@ -131,6 +134,9 @@ listen('click', '.paystack-enable', function () {
 
 listen("click", ".paypal-enable", function () {
     $(".paypal-div").toggleClass("d-none");
+});
+listen("click", ".fatoorah-enable", function () {
+    $(".fatoorah-div").toggleClass("d-none");
 });
 
 listen("click", "#paypal_payment", function () {
@@ -140,6 +146,9 @@ listen("click", "#paypal_payment", function () {
 
 listen("click", "#stripe_payment", function () {
     $(".stripe-cred").toggleClass("d-none");
+});
+listen("click", "#MyFatoorah_payment", function () {
+    $(".fatoorah-cred").toggleClass("d-none");
 });
 
 listen('click', '#paystack_payment', function () {
@@ -180,6 +189,13 @@ listen("submit", "#UserCredentialsSettings", function () {
             return false;
         } else if ($("#paypalMode").val().trim().length === 0) {
             displayErrorMessage(Lang.get("js.paypal_mode"));
+            return false;
+        }
+    }
+
+    if ($("#fatoorahEnable").prop("checked")) {
+        if ($("#fatoorah_api_key").val().trim().length === 0) {
+            displayErrorMessage(Lang.get("js.fatoora"));
             return false;
         }
     }

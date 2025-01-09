@@ -553,6 +553,7 @@ class VcardController extends AppBaseController
         $vcardProducts = $vcard->products->sortDesc()->take(6);
 
         $products =  Product::with('vcard')->whereVcardId($id)->get();
+
         $template_id = $products->first()->vcard->template_id;
 
         if ($vcard->status) {
@@ -579,7 +580,7 @@ class VcardController extends AppBaseController
         $urlWithoutDomain = trim(parse_url($fullUrl, PHP_URL_PATH), '/');
 
         $vcard = Vcard::whereUrlAlias($urlWithoutDomain)->first();
-        $valuedata = 5 * 1000; 
+        $valuedata = 5 * 1000;
 
         if ($vcard) {
             $user = $vcard->user;

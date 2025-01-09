@@ -72,7 +72,7 @@ class ProductController extends AppBaseController
     {
         $input = $request->all();
 
-        $product = Product::with('currency','vcard.user')->whereId($input['product_id'])->first();
+        $product = Product::with('currency', 'vcard.user')->whereId($input['product_id'])->first();
         $currency = isset($product->currency_id) ? $product->currency->currency_code : Currency::whereId(getUserSettingValue('currency_id', $product->vcard->user->id))->first()->currency_code;
         try {
             App::setLocale(Session::get('languageChange_' . $product->vcard->url_alias));
@@ -106,7 +106,7 @@ class ProductController extends AppBaseController
                     'product_id' => $input['product_id'],
                     'currency_id' => $product->currency_id,
                     'amount' => $product->price,
-                    'status'=> 1,
+                    'status' => 1,
                 ]);
 
                 DB::commit();
@@ -133,6 +133,27 @@ class ProductController extends AppBaseController
                     $result,
                 ], __('messages.placeholder.paypal_created'));
             }
+
+
+            //fatoorah
+            if ($input['payment_method'] == Product::FATOORAH) {
+                if (isset($currency) && !in_array(strtoupper($currency), getPayPalSupportedCurrencies())) {
+
+                    return $this->sendError(__('messages.placeholder.this_currency_is_not_supported_fatoorah'));
+                }
+
+                /** @var MyFatoorahController $MyFatoorahController */
+                $MyFatoorahController = App::make(MyFatoorahController::class);
+
+                $result = $MyFatoorahController->buyProductOnboard($input, $product);
+                DB::commit();
+                return $this->sendResponse([
+                    'payment_method' => $input['payment_method'],
+                    $result,
+                ], __('messages.placeholder.fatoorah_session_created'));
+            }
+
+
         } catch (Exception $e) {
             DB::rollBack();
 
@@ -140,7 +161,7 @@ class ProductController extends AppBaseController
         }
     }
 
-        public function updateProductStatus($id, $status)
+    public function updateProductStatus($id, $status)
     {
         $product = ProductTransaction::find($id);
 
@@ -150,6 +171,6 @@ class ProductController extends AppBaseController
         $product->status = $status;
         $product->save();
 
-        return redirect()->back()->with('success',  __('messages.flash.product_status_change'));
+        return redirect()->back()->with('success', __('messages.flash.product_status_change'));
     }
 }

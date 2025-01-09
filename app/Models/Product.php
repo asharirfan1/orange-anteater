@@ -87,11 +87,13 @@ class Product extends Model implements HasMedia
     const STRIPE = 1;
     const PAYPAL = 2;
     const MANUALLY = 3;
+    const FATOORAH = 4;
 
     const PAYMENT_METHOD = [
         self::STRIPE => 'Stripe',
         self::PAYPAL => 'Paypal',
         self::MANUALLY => 'Manually',
+        self::FATOORAH => 'Fatoorah',
     ];
     const APPROVED = 0;
 

@@ -964,6 +964,7 @@ return [
         'role_created' => 'Role created successfully.',
         'appointment_created' => 'Appointment created successfully.',
         'paypal_created' => 'Paypal session created successfully.',
+        'fatoorah_session_created' => 'MyFatoorah session created successfully.',
         'stripe_created' => 'Stripe session created successfully.',
         'paystack_created' => 'Paystack session created successfully.',
         'purchased_plan' => 'You purchase this plan successfully.',

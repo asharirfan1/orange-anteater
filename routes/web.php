@@ -151,6 +151,16 @@ Route::middleware('auth', 'valid.user')->group(function () {
             Route::get('my-fatoorah/success', [MyFatoorahController::class, 'success'])->name('my-fatoorah.success');
             Route::get('my-fatoorah/failure', [MyFatoorahController::class, 'failure'])->name('my-fatoorah.failure');
 
+
+            //My Fatoorah user payment
+            Route::get('product-paypal-payment-success', [MyFatoorahController::class, 'productBuySuccess'])->name('fatoorah.buy.product.success');
+            Route::get('product-paypal-payment-failed', [MyFatoorahController::class, 'productBuyFailed'])->name('fatoorah.buy.product.failed');
+
+
+
+
+
+
             //paystack routes
             Route::get('paystack-onboard', [PaystackController::class, 'redirectToGateway'])->name('paystack.init');
             Route::get('paystack-payment-success',[PaystackController::class, 'handleGatewayCallback'])->name('paystack.success');
