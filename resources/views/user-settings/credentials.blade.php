@@ -237,17 +237,4 @@
         </div>
     </div>
 
-
-    <script>
-        document.getElementById('fatoorahEnable').addEventListener('change', function () {
-            const fatoorahDiv = document.querySelector('.fatoorah-div');
-            if (this.checked) {
-                fatoorahDiv.classList.remove('d-none');
-            } else {
-                fatoorahDiv.classList.add('d-none');
-            }
-        });
-
-
-    </script>
 @endsection
