@@ -137,7 +137,7 @@ class ProductController extends AppBaseController
 
             //fatoorah
             if ($input['payment_method'] == Product::FATOORAH) {
-                if (isset($currency) && !in_array(strtoupper($currency), getPayPalSupportedCurrencies())) {
+                if (isset($currency) && !in_array(strtoupper($currency), getMyFatoorahSupportedCurrencies())) {
 
                     return $this->sendError(__('messages.placeholder.this_currency_is_not_supported_fatoorah'));
                 }
