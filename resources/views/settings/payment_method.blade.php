@@ -102,6 +102,42 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+                <div class="">
+                    <div class="form-group mb-5 mt-10">
+                        <label class="form-check form-switch form-check-custom">
+                            <input class="form-check-input" type="checkbox" value="{{ \App\Models\Plan::MYFATOORAH }}"
+                                   name="payment_gateway[{{ \App\Models\Plan::MYFATOORAH }}]"
+                                   {{ isset($selectedPaymentGateways['MyFatoorah']) ? 'checked' : '' }} id="MyFatoorah_payment">
+                            <span class="form-check-label fw-bold"
+                                  for="manually_payment">{{ __('messages.setting.myFatoorah') }}</span>&nbsp;&nbsp;
+                        </label>
+                    </div>
+                    <div class="col-lg-10 row fatoorah-cred {{ !isset($selectedPaymentGateways['MyFatoorah']) ? 'd-none' : '' }}">
+                        <div class="form-group col-lg-6 mb-5">
+                            {{ Form::label('messages.setting.myFatoorah', __('messages.setting.myFatoorah') . ':', ['class' => 'form-label mb-3']) }}
+                            {{ Form::text('fatoorah_api_key', $setting['fatoorah_api_key'], ['class' => 'form-control  myFatoorah_key ', 'placeholder' => __('messages.setting.fatoorah_api_key')]) }}
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="">
                     <div class="form-group mb-5 mt-10">
                         <label class="form-check form-switch form-check-custom">
@@ -113,6 +149,15 @@
                         </label>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
             </div>
             <div>
                 {{ Form::submit(__('messages.common.save'), ['class' => 'btn btn-primary me-3', 'data-turbo' => 'false']) }}
@@ -121,4 +166,7 @@
         </div>
     </div>
     </div>
+
+
 @endsection
+

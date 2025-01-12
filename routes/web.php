@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyFatoorahController;
 use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\NfcOrdersTable;
@@ -144,6 +145,21 @@ Route::middleware('auth', 'valid.user')->group(function () {
             Route::get('paypal-onboard', [PaypalController::class, 'onBoard'])->name('paypal.init');
             Route::get('paypal-payment-success', [PaypalController::class, 'success'])->name('paypal.success');
             Route::get('paypal-payment-failed', [PaypalController::class, 'failed'])->name('paypal.failed');
+
+            // My fatoorah routes
+            Route::get('init-my-fatoorah', [MyFatoorahController::class, 'init'])->name('my-fatoorah.init');
+            Route::get('my-fatoorah/success', [MyFatoorahController::class, 'success'])->name('my-fatoorah.success');
+            Route::get('my-fatoorah/failure', [MyFatoorahController::class, 'failure'])->name('my-fatoorah.failure');
+
+
+            //My Fatoorah user payment
+            Route::get('product-paypal-payment-success', [MyFatoorahController::class, 'productBuySuccess'])->name('fatoorah.buy.product.success');
+            Route::get('product-paypal-payment-failed', [MyFatoorahController::class, 'productBuyFailed'])->name('fatoorah.buy.product.failed');
+
+
+
+
+
 
             //paystack routes
             Route::get('paystack-onboard', [PaystackController::class, 'redirectToGateway'])->name('paystack.init');

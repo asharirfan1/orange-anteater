@@ -50,7 +50,7 @@ class SettingController extends AppBaseController
 
         $metas = Meta::first();
         $sectionName = ($request->get('section') === null) ? 'general' : $request->get('section');
-        if (! empty($metas)) {
+        if (!empty($metas)) {
             $metas = $metas->toArray();
         }
 
@@ -121,7 +121,7 @@ class SettingController extends AppBaseController
 
             $termsConditions->update(['value' => $value]);
         }
-        Flash::success(__('messages.vcard.term-condition').' '.__('messages.flash.vcard_update'));
+        Flash::success(__('messages.vcard.term-condition') . ' ' . __('messages.flash.vcard_update'));
 
         return Redirect::back();
     }
@@ -139,7 +139,7 @@ class SettingController extends AppBaseController
             $manualPaymentGuide->update(['value' => $value]);
         }
 
-        Flash::success(__('messages.vcard.manual_payment_guide').' '.__('messages.flash.vcard_update'));
+        Flash::success(__('messages.vcard.manual_payment_guide') . ' ' . __('messages.flash.vcard_update'));
 
         return redirect()->back();
     }
@@ -169,7 +169,7 @@ class SettingController extends AppBaseController
             ]);
         }
 
-        Flash::success(__('messages.vcard.google_config').' '.__('messages.flash.vcard_update'));
+        Flash::success(__('messages.vcard.google_config') . ' ' . __('messages.flash.vcard_update'));
 
         return Redirect::back();
     }
@@ -192,29 +192,31 @@ class SettingController extends AppBaseController
             }
         }
 
-            $paymentMethodKeys = [
-                'stripe_key', 'stripe_secret', 'paypal_client_id', 'paypal_secret','paypal_mode', 'razorpay_key', 'razorpay_secret', 'paystack_key', 'paystack_secret',
-            ];
-            foreach ($paymentMethodKeys as $key) {
-                    $setting = Setting::where('key', $key)->first();
-                    $setting->update(['value' => $input[$key]]);
-            }
+        $paymentMethodKeys = [
+            'stripe_key', 'stripe_secret', 'paypal_client_id', 'paypal_secret', 'paypal_mode', 'razorpay_key', 'razorpay_secret', 'paystack_key', 'paystack_secret', 'fatoorah_api_key'
+        ];
+        foreach ($paymentMethodKeys as $key) {
+            $setting = Setting::where('key', $key)->first();
+            $setting->update(['value' => $input[$key]]);
+        }
 
-        Flash::success(__('messages.vcard.payment_config').' '.__('messages.flash.vcard_update'));
+        Flash::success(__('messages.vcard.payment_config') . ' ' . __('messages.flash.vcard_update'));
 
         return Redirect::back();
     }
 
-    public function updateTheme(Request $request){
+    public function updateTheme(Request $request)
+    {
 
-        $themeSetting = Setting::where('key','home_page_theme')->first();
-        $themeSetting->update(['value'=>$request->theme_id]);
+        $themeSetting = Setting::where('key', 'home_page_theme')->first();
+        $themeSetting->update(['value' => $request->theme_id]);
 
         Flash::success(__('messages.flash.success_theme_update'));
         return Redirect::back();
     }
 
-    public function upgradeDatabase(){
+    public function upgradeDatabase()
+    {
 
         Artisan::call('migrate', ['--force' => true]);
         Flash::success(__('messages.flash.database_upgrade_succesfully'));
@@ -222,7 +224,8 @@ class SettingController extends AppBaseController
         return Redirect::back();
     }
 
-    public function generateSitemap(){
+    public function generateSitemap()
+    {
 
         Artisan::call('sitemap:generate');
         Flash::success(__('messages.sitemap_generated'));

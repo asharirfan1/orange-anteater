@@ -30,6 +30,7 @@ class UserSettingRepository extends BaseRepository
     {
         $inputArr = Arr::except($input, ['_token', 'sectionName']);
 
+        $inputArr['fatoorah_enable'] = isset($inputArr['fatoorah_enable']) ? '1' : '0';
         $inputArr['stripe_enable'] = isset($inputArr['stripe_enable']) ? '1' : '0';
         $inputArr['paytack_enable'] = isset($inputArr['paytack_enable']) ? '1' : '0';
         $inputArr['paypal_enable'] = isset($inputArr['paypal_enable']) ? '1' : '0';

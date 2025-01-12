@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", displayError);
 document.addEventListener("DOMContentLoaded", loadVcardView);
 document.addEventListener("DOMContentLoaded", passwordLoad);
 document.addEventListener("DOMContentLoaded", langDropdown);
+
 function displayError(selector, msg) {
     let selectorAttr = $(selector);
     selectorAttr.removeClass("d-none");
@@ -13,9 +14,11 @@ function displayError(selector, msg) {
         $(selector).slideUp();
     }, 3000);
 }
+
 let selectedDate;
 let selectedSlotTime;
 let timezone_offset_minutes;
+
 function loadVcardView() {
     let urlStr = window.location.href;
     if (urlStr.indexOf("?") != -1) {
@@ -563,7 +566,8 @@ listen("click", ".paymentByPaypal", function () {
                 position: "topRight",
             });
         },
-        complete: function () {},
+        complete: function () {
+        },
     });
 });
 
@@ -720,6 +724,7 @@ listenClick(".buy-product", function (e) {
 });
 
 listenSubmit("#productBuyForm", function (event) {
+    console.log(event, "this is event")
     event.preventDefault();
     $("#buyProductBtn").attr("disabled", true);
     $.ajax({
@@ -754,6 +759,16 @@ listenSubmit("#productBuyForm", function (event) {
                             location.href = redirectTo;
                         }
                     }
+
+                    if (result.data.payment_method == 4) {
+                        console.log('inside 4')
+                        if (result.data[0].original.link) {
+                            window.location.href = result.data[0].original.link;
+                        }
+
+                    }
+
+
                 }
                 displaySuccessMessage(result.message);
                 $("#productBuyForm")[0].reset();
@@ -773,21 +788,21 @@ listenHiddenBsModal('#buyProductModal', function () {
 })
 
 
-window.onload = function() {
+window.onload = function () {
     var currentPageUrl = window.location.href;
     $.ajax({
         url: route("getCookie"),
         type: "GET",
-        data: { url: currentPageUrl },
+        data: {url: currentPageUrl},
         success: function (result) {
             if (result.success) {
-               setTimeout(function() {
-                if (document.cookie.includes("newsletter_popup")) {
-                    $('#newsLatterModal').modal('hide');
-                }else{
-                    $('#newsLatterModal').modal('show');
-                }
-                },result.data);
+                setTimeout(function () {
+                    if (document.cookie.includes("newsletter_popup")) {
+                        $('#newsLatterModal').modal('hide');
+                    } else {
+                        $('#newsLatterModal').modal('show');
+                    }
+                }, result.data);
             }
         },
         error: function (result) {
